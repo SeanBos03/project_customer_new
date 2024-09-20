@@ -195,7 +195,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 164
+  controlID: 161
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1079,7 +1079,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: f6faffff
+      m_ExpandedIDs: de2afdff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1149,7 +1149,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1157,17 +1157,17 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts
+  - Assets
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: C:\Users\seanb\Documents\Github Projects\Shared\Project_Customer_2024-2025\VR
-    Room
+  m_LastProjectPath: C:\Users\seanb\Documents\Github Projects\Shared\Project_Customer_New\project_customer_new\VR
+    Room 2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f8910000
-    m_LastClickedID: 37368
-    m_ExpandedIDs: 00000000fc900000fe90000000910000029100000491000006910000089100000a9100000c9100000e9100001091000000ca9a3b
+    m_SelectedIDs: 3e410000
+    m_LastClickedID: 16702
+    m_ExpandedIDs: 000000003e41000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1195,7 +1195,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fc900000fe90000000910000029100000491000006910000089100000a9100000c9100000e91000010910000
+    m_ExpandedIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
