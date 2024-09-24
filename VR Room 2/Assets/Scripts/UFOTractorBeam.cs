@@ -1,24 +1,56 @@
 using System.Collections;
 using UnityEngine;
 
-public class UFOTractorBeam : MonoBehaviour
+public class UFOMovement : MonoBehaviour
 {
-    public Transform player;         // Reference to the player object
-    public float moveSpeed = 5f;     // Speed at which the UFO moves towards the player
-    public float dragSpeed = 3f;     // Speed at which the player is dragged towards the UFO
-    public float stopDistance = 1f;  // Distance at which the UFO stops when it gets near the player
+    public Transform player;
+    public float moveSpeed = 10f;
+    public float hoverHeight = 40f;
+    public float dragSpeed = 3f;
+    public float stopDistance = 1f;
+
+    private VictimControl playerController;
 
     private bool isMovingToPlayer = false;
+    private bool isHoveringAbovePlayer = false;
     private bool isDraggingPlayer = false;
+
+    public Light ufoSpotlight;
+    public ParticleSystem beamParticles;
+
+    void Start()
+    {
+        playerController = player.GetComponent<VictimControl>();
+
+        if (ufoSpotlight != null)
+        {
+            ufoSpotlight.enabled = false;
+        }
+        if (beamParticles != null)
+        {
+            beamParticles.Stop();
+        }
+    }
 
     void Update()
     {
-        // On key press (for example, 'E' key), start the movement
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            if (!isMovingToPlayer && !isDraggingPlayer)
+            if (!isMovingToPlayer && !isHoveringAbovePlayer && !isDraggingPlayer)
             {
                 StartCoroutine(MoveToPlayer());
+            }
+        }
+
+        if (ufoSpotlight != null && beamParticles != null)
+        {
+            if (isHoveringAbovePlayer || isDraggingPlayer)
+            {
+                ufoSpotlight.enabled = true;
+            }
+            else
+            {
+                ufoSpotlight.enabled = false;
             }
         }
     }
@@ -27,15 +59,36 @@ public class UFOTractorBeam : MonoBehaviour
     {
         isMovingToPlayer = true;
 
-        // Move the UFO towards the player until it's within stopDistance
-        while (Vector3.Distance(transform.position, player.position) > stopDistance)
+        while (Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z),
+                                new Vector3(player.position.x, 0, player.position.z)) > stopDistance)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+            Vector3 targetPosition = new Vector3(player.position.x, transform.position.y, player.position.z);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
             yield return null;
         }
 
-        // Start dragging the player after the UFO reaches the player
+        isHoveringAbovePlayer = true;
+        StartCoroutine(HoverAbovePlayer());
+    }
+
+    IEnumerator HoverAbovePlayer()
+    {
+        Vector3 hoverPosition = new Vector3(player.position.x, hoverHeight, player.position.z);
+
+        while (Vector3.Distance(transform.position, hoverPosition) > 0.1f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, hoverPosition, moveSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        // Activate particles when hovering starts
+        if (beamParticles != null && !beamParticles.isPlaying)
+        {
+            beamParticles.Play();
+        }
+
         isDraggingPlayer = true;
+        playerController.StartDragging();
         StartCoroutine(DragPlayerToUFO());
     }
 
@@ -45,17 +98,23 @@ public class UFOTractorBeam : MonoBehaviour
         {
             player.position = Vector3.MoveTowards(player.position, transform.position, dragSpeed * Time.deltaTime);
 
-            // If the player is close enough to the UFO, stop dragging
             if (Vector3.Distance(player.position, transform.position) < 0.1f)
             {
                 isDraggingPlayer = false;
+                playerController.StopDragging();
                 break;
             }
 
             yield return null;
         }
 
-        // Reset flags when the player has been dragged to the UFO
+        // Stop particles when dragging ends
+        if (beamParticles != null && beamParticles.isPlaying)
+        {
+            beamParticles.Stop();
+        }
+
         isMovingToPlayer = false;
+        isHoveringAbovePlayer = false;
     }
 }
