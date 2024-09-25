@@ -1,36 +1,59 @@
 using UnityEngine;
-using Oculus.Platform; // Optional for Oculus-specific platform functionalities
-using Oculus.Platform.Models; // Optional for Oculus-specific models
+using UnityEngine.InputSystem;
 
-public class VRJoystickMovement : MonoBehaviour
+public class XRJoystickMovement : MonoBehaviour
 {
-    public float speed = 2.0f;   // Movement speed
-    public Transform playerCamera;  // The VR Camera (usually the CenterEyeAnchor in OVRCameraRig)
+    public InputActionProperty leftJoystick;   // Left joystick input for movement
+    public InputActionProperty rightJoystick;  // Right joystick input for turning
+    public InputActionProperty sprintAction;   // Input action for sprinting
+
+    public float normalMoveSpeed = 2.0f;       // Normal movement speed
+    public float sprintMoveSpeed = 4.0f;       // Sprint movement speed
+    public float turnSpeed = 60f;              // Turn speed for left/right rotation
+
+    public Transform xrCamera;                 // Reference to the VR camera
+
     private CharacterController characterController;
 
-    void Start()
+    private void Start()
     {
-        // Get the CharacterController attached to the rig
         characterController = GetComponent<CharacterController>();
-        if (playerCamera == null)
+        if (xrCamera == null)
         {
-            playerCamera = Camera.main.transform;  // Fallback if not assigned
+            xrCamera = Camera.main.transform;
+        }
+
+        if (characterController == null)
+        {
+            Debug.LogError("CharacterController component is missing on the XR Rig.");
         }
     }
 
-    void Update()
+    private void Update()
     {
-        // Get input from the Oculus controller's primary thumbstick (left hand controller typically)
-        Vector2 primaryAxis = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
+        // Read joystick input for movement
+        Vector2 leftInput = leftJoystick.action.ReadValue<Vector2>();
+        Vector3 moveDirection = new Vector3(leftInput.x, 0, leftInput.y);
 
-        // Convert joystick input into movement vector
-        Vector3 moveDirection = new Vector3(primaryAxis.x, 0, primaryAxis.y);
+        // Convert movement direction relative to camera orientation, ignore y-axis to prevent floating
+        Vector3 movement = xrCamera.TransformDirection(moveDirection);
+        movement.y = 0;  // Ensures no vertical movement is applied
 
-        // Move relative to the camera's forward direction
-        moveDirection = playerCamera.TransformDirection(moveDirection);
-        moveDirection.y = 0; // Ensure movement is only horizontal
+        // Determine movement speed based on sprint input
+        float moveSpeed = sprintAction.action.IsPressed() ? sprintMoveSpeed : normalMoveSpeed;
 
         // Apply movement to the CharacterController
-        characterController.Move(moveDirection * speed * Time.deltaTime);
+        characterController.Move(movement * moveSpeed * Time.deltaTime);
+
+        // Read right joystick for left/right turning
+        Vector2 rightInput = rightJoystick.action.ReadValue<Vector2>();
+
+        // Apply horizontal rotation (yaw) to the XR Rig
+        float turnAmount = rightInput.x * turnSpeed * Time.deltaTime;
+        transform.Rotate(0, turnAmount, 0);
+
+        // Apply gravity manually to keep player grounded
+        Vector3 gravity = Vector3.down * 9.81f * Time.deltaTime; // Adjust gravity value as needed
+        characterController.Move(gravity);
     }
 }
