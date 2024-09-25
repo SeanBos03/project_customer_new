@@ -2418,7 +2418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand: {fileID: 1731565238}
   rightHand: {fileID: 2017215764}
-  triggerDistance: 0.2
+  triggerDistance: 0.05
   playerAnimator: {fileID: 1222447429}
 --- !u!95 &1222447429
 Animator:

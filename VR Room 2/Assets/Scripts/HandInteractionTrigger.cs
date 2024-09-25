@@ -6,7 +6,7 @@ public class HandInteractionTrigger : MonoBehaviour
 {
     public Transform leftHand;
     public Transform rightHand;
-    public float triggerDistance = 0.2f;
+    public float triggerDistance = 0.05f;
     public Animator playerAnimator;
 
     private bool isAnimationTriggered = false;
@@ -29,11 +29,13 @@ public class HandInteractionTrigger : MonoBehaviour
     {
         isAnimationTriggered = true;
         playerAnimator.SetTrigger("HandsTogether");
+        Debug.Log("Hands are together, animation triggered!");
     }
 
     void ResetAnimation()
     {
         isAnimationTriggered = false;
         playerAnimator.ResetTrigger("HandsTogether");
+        Debug.Log("Hands are apart, animation reset.");
     }
 }
