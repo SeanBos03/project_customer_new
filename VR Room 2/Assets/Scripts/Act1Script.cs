@@ -20,34 +20,6 @@ public class Act1Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Check if XR is initialized and running
-        if (XRGeneralSettings.Instance.Manager.isInitializationComplete)
-        {
-            // Print when the VR environment is loaded
-            Debug.Log("VR is loaded and ready!");
-            playerAudioSource = audioSourceObject.GetComponent<AudioSource>();
-            theStage++;
-            ExectueStage();
-        }
-        else
-        {
-            // Start a coroutine to wait for XR initialization
-            StartCoroutine(CheckVRLoaded());
-        }
-        
-    }
-
-    // Coroutine to wait until XR is initialized
-    private System.Collections.IEnumerator CheckVRLoaded()
-    {
-        // Wait until the XR system is fully initialized
-        while (!XRGeneralSettings.Instance.Manager.isInitializationComplete)
-        {
-            yield return null; // Wait for the next frame
-        }
-
-        // Once XR is initialized, print the message
-        Debug.Log("VR is now loaded and ready!");
     }
 
     private void Update()
