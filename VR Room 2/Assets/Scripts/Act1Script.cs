@@ -8,6 +8,7 @@ public class Act1Script : MonoBehaviour
     [SerializeField] List<AudioClip> audioClips = new List<AudioClip>();
     [SerializeField] GameObject audioSourceObject;
     [SerializeField] GameObject theVictim;
+    [SerializeField] GameObject theVictim2;
     AudioClip theAudioClip;
     AudioSource playerAudioSource;
 
@@ -67,6 +68,15 @@ public class Act1Script : MonoBehaviour
                     ExectueStage();
                 }
                 break;
+            case 4:
+                if (!playerAudioSource.isPlaying)
+                {
+                    theStage = 5;
+                    repeatCheck = false;
+                    ExectueStage();
+                }
+                break;
+
         }
     }
 
@@ -118,7 +128,6 @@ public class Act1Script : MonoBehaviour
                 playerAudioSource.clip = audioClips[1];
                 playerAudioSource.Play();
                 Debug.Log("Intro sound 2 play");
-                theVictim.SetActive(true);
                 theStage++;
                 break;
             case 3:
@@ -131,11 +140,37 @@ public class Act1Script : MonoBehaviour
                 playerAudioSource.clip = audioClips[4];
                 playerAudioSource.Play();
                 Debug.Log("victim breathing play");
+                repeatCheck = true;
+                break;
+            case 5:
+                playerAudioSource.clip = audioClips[5];
+                playerAudioSource.Play();
+                Debug.Log("phone call play");
                 theStage++;
                 break;
-
-
-
+            case 7:
+                playerAudioSource.clip = audioClips[6];
+                playerAudioSource.Play();
+                Debug.Log("call succeed play");
+                theStage++;
+                break;
+            case 8:
+                playerAudioSource.clip = audioClips[7];
+                playerAudioSource.Play();
+                theStage++;
+                Debug.Log("victim 2  play");
+                break;
+            case 9:
+                int theNumber = Random.Range(8, 12);
+                playerAudioSource.clip = audioClips[theNumber];
+                playerAudioSource.Play();
+                Debug.Log("wrong item play");
+                break;
+            case 10:
+                playerAudioSource.clip = audioClips[12];
+                playerAudioSource.Play();
+                Debug.Log("correct item play");
+                break;
         }
     }
 

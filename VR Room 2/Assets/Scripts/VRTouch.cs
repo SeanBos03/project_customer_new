@@ -7,13 +7,19 @@ public class VRTouch : MonoBehaviour
     Coroutine collisionTimerCoroutine = null;
 
     [SerializeField] Act1Script theScript;
+    public bool shouldStart;
 
     void OnTriggerEnter(Collider other)
     {
+        if (shouldStart == false)
+        {
+            return;
+        }
+
         if (theScript.theStage == 4)
         {
             // Check if the collided object matches the specific tag
-            if (other.CompareTag("GameController"))
+            if (other.CompareTag("DaHand"))
             {
                 if (collisionTimerCoroutine == null)
                 {
@@ -26,9 +32,14 @@ public class VRTouch : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        if (shouldStart == false)
+        {
+            return;
+        }
+
         if (theScript.theStage == 4)
         {
-            if (other.CompareTag("GameController"))
+            if (other.CompareTag("DaHand"))
             {
                 if (collisionTimerCoroutine != null)
                 {

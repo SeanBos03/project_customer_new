@@ -9,6 +9,8 @@ public class CallButton : MonoBehaviour
     [SerializeField] string theSecondNumber;
     [SerializeField] GameObject thePhone;
 
+    [SerializeField] Act1Script theScript;
+
     PhoneDial phoneDialScript;
     XRSimpleInteractable theInteractable;
 
@@ -25,6 +27,12 @@ public class CallButton : MonoBehaviour
             phoneDialScript.TheNumber == theSecondNumber)
         {
             Debug.Log("Call success");
+
+            if (theScript.theStage == 6)
+            {
+                theScript.theStage++;
+                theScript.ExectueStage();
+            }
         }
 
         else
