@@ -6,9 +6,11 @@ using UnityEngine.XR.Management;
 public class Act1Script : MonoBehaviour
 {
     [SerializeField] List<AudioClip> audioClips = new List<AudioClip>();
-    [SerializeField] GameObject audioSourceObject;
+    
     [SerializeField] GameObject theVictim;
     [SerializeField] GameObject theVictim2;
+
+    [SerializeField] GameObject audioSourceObject;
     AudioClip theAudioClip;
     AudioSource playerAudioSource;
 

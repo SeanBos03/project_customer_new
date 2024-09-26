@@ -15,8 +15,14 @@ public class XRJoystickMovement : MonoBehaviour
 
     private CharacterController characterController;
 
+
+    [SerializeField] GameObject audioSourceObject;
+    [SerializeField] AudioClip theAudioClip;
+    AudioSource playerAudioSource;
+
     private void Start()
     {
+        playerAudioSource = GetComponent<AudioSource>();
         characterController = GetComponent<CharacterController>();
         if (xrCamera == null)
         {
@@ -44,6 +50,12 @@ public class XRJoystickMovement : MonoBehaviour
 
         // Apply movement to the CharacterController
         characterController.Move(movement * moveSpeed * Time.deltaTime);
+
+        if ((movement * moveSpeed * Time.deltaTime).magnitude > 0)
+        {
+            playerAudioSource.clip = theAudioClip;
+            playerAudioSource.Play();
+        }
 
         // Read right joystick for left/right turning
         Vector2 rightInput = rightJoystick.action.ReadValue<Vector2>();
