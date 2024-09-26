@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Management;
 
 public class Act1Script : MonoBehaviour
 {
@@ -16,7 +17,34 @@ public class Act1Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerAudioSource = audioSourceObject.GetComponent<AudioSource>();
+        // Check if XR is initialized and running
+        if (XRGeneralSettings.Instance.Manager.isInitializationComplete)
+        {
+            // Print when the VR environment is loaded
+            Debug.Log("VR is loaded and ready!");
+            playerAudioSource = audioSourceObject.GetComponent<AudioSource>();
+            theStage++;
+            ExectueStage();
+        }
+        else
+        {
+            // Start a coroutine to wait for XR initialization
+            StartCoroutine(CheckVRLoaded());
+        }
+        
+    }
+
+    // Coroutine to wait until XR is initialized
+    private System.Collections.IEnumerator CheckVRLoaded()
+    {
+        // Wait until the XR system is fully initialized
+        while (!XRGeneralSettings.Instance.Manager.isInitializationComplete)
+        {
+            yield return null; // Wait for the next frame
+        }
+
+        // Once XR is initialized, print the message
+        Debug.Log("VR is now loaded and ready!");
     }
 
     private void Update()
@@ -60,6 +88,9 @@ public class Act1Script : MonoBehaviour
             case 3:
                 DistractPlay();
                 break;
+            case 4:
+                DistractPlay();
+                break;
         }
     }
 
@@ -73,7 +104,7 @@ public class Act1Script : MonoBehaviour
         }
     }
 
-    void ExectueStage()
+    public void ExectueStage()
     {
         switch (theStage)
         {
@@ -94,7 +125,16 @@ public class Act1Script : MonoBehaviour
                 playerAudioSource.clip = audioClips[3];
                 playerAudioSource.Play();
                 Debug.Log("Check breathing play");
+                theStage++;
                 break;
+            case 4:
+                playerAudioSource.clip = audioClips[4];
+                playerAudioSource.Play();
+                Debug.Log("victim breathing play");
+                theStage++;
+                break;
+
+
 
         }
     }
