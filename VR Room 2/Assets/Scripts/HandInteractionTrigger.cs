@@ -6,20 +6,24 @@ public class HandInteractionTrigger : MonoBehaviour
 {
     public Transform leftHand;
     public Transform rightHand;
+    public Transform otherCharacter;  // Reference to the other character's Transform
     public float triggerDistance = 0.05f;
+    public float proximityDistance = 1.0f;  // Proximity distance for the other character
     public Animator playerAnimator;
 
     private bool isAnimationTriggered = false;
 
     void Update()
     {
-        float distance = Vector3.Distance(leftHand.position, rightHand.position);
+        float handDistance = Vector3.Distance(leftHand.position, rightHand.position);
+        float proximityToOther = Vector3.Distance(transform.position, otherCharacter.position);
 
-        if (distance <= triggerDistance && !isAnimationTriggered)
+        // Check if hands are together AND the player is within proximity of the other character
+        if (handDistance <= triggerDistance && proximityToOther <= proximityDistance && !isAnimationTriggered)
         {
             TriggerAnimation();
         }
-        else if (distance > triggerDistance && isAnimationTriggered)
+        else if ((handDistance > triggerDistance || proximityToOther > proximityDistance) && isAnimationTriggered)
         {
             ResetAnimation();
         }
@@ -29,13 +33,13 @@ public class HandInteractionTrigger : MonoBehaviour
     {
         isAnimationTriggered = true;
         playerAnimator.SetTrigger("HandsTogether");
-        Debug.Log("Hands are together, animation triggered!");
+        Debug.Log("Hands are together and within proximity of the other character, animation triggered!");
     }
 
     void ResetAnimation()
     {
         isAnimationTriggered = false;
         playerAnimator.ResetTrigger("HandsTogether");
-        Debug.Log("Hands are apart, animation reset.");
+        Debug.Log("Hands are apart or out of proximity, animation reset.");
     }
 }
