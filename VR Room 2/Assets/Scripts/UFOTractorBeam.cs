@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class UFOMovement : MonoBehaviour
+public class UFOTractorBeam : MonoBehaviour
 {
     public Transform player;
     public float moveSpeed = 10f;
