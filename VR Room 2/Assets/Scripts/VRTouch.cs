@@ -59,7 +59,7 @@ public class VRTouch : MonoBehaviour
         yield return new WaitForSeconds(waitTime);  // Wait for the specified time
 
         // After 5 seconds of continuous collision
-        Debug.Log("Colliding with Player for 5 seconds!");
+        Debug.Log("pulse check done");
         theScript.ExectueStage();
     }
 }

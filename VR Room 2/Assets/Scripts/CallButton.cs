@@ -47,6 +47,12 @@ public class CallButton : MonoBehaviour
             playerAudioSource.clip = phoneDialSound;
             playerAudioSource.Play();
             Debug.Log("Call failed");
+
+            if (theScript.theStage == 6)
+            {
+                theScript.theStage++;
+                theScript.AdvanceStage();
+            }
         }
     }
 }

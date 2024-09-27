@@ -10,17 +10,18 @@ public class Act1Script : MonoBehaviour
     [SerializeField] GameObject theVictim;
     [SerializeField] GameObject theVictim2;
 
+    [SerializeField] GameObject theUFO1;
+    [SerializeField] GameObject theWaypoint1;
+
+    [SerializeField] GameObject theUFO2;
+    [SerializeField] GameObject theWaypoint2;
+
     [SerializeField] GameObject audioSourceObject;
     AudioClip theAudioClip;
     AudioSource playerAudioSource;
 
     public int theStage;
     bool repeatCheck;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     private void Update()
     {
@@ -42,15 +43,14 @@ public class Act1Script : MonoBehaviour
                     ExectueStage();
                 }
                 break;
-            case 4:
+            case 6:
                 if (!playerAudioSource.isPlaying)
                 {
-                    theStage = 5;
+                    theStage++;
                     repeatCheck = false;
                     ExectueStage();
                 }
                 break;
-
         }
     }
 
@@ -75,6 +75,15 @@ public class Act1Script : MonoBehaviour
             case 4:
                 DistractPlay();
                 break;
+            case 5:
+                DistractPlay();
+                    break;
+            case 6:
+                MistakePlay();
+                break;
+            case 11:
+                MistakePlay();
+                break;
         }
     }
 
@@ -86,6 +95,14 @@ public class Act1Script : MonoBehaviour
             playerAudioSource.Play();
             Debug.Log("Distract play");
         }
+    }
+
+    void MistakePlay()
+    {
+        int theNumber = Random.Range(8, 12);
+        playerAudioSource.clip = audioClips[theNumber];
+        playerAudioSource.Play();
+        Debug.Log("mistake play");
     }
 
     public void ExectueStage()
@@ -102,49 +119,98 @@ public class Act1Script : MonoBehaviour
                 playerAudioSource.clip = audioClips[1];
                 playerAudioSource.Play();
                 Debug.Log("Intro sound 2 play");
+                theWaypoint1.SetActive(true);
                 theStage++;
                 break;
             case 3:
                 playerAudioSource.clip = audioClips[3];
                 playerAudioSource.Play();
+                theWaypoint1.SetActive(false);
                 Debug.Log("Check breathing play");
                 theStage++;
                 break;
             case 4:
                 playerAudioSource.clip = audioClips[4];
                 playerAudioSource.Play();
-                Debug.Log("victim breathing play");
-                repeatCheck = true;
+                theStage++;
+                Debug.Log("cpr start play");
                 break;
             case 5:
                 playerAudioSource.clip = audioClips[5];
                 playerAudioSource.Play();
+                theStage++;
                 Debug.Log("phone call play");
+                break;
+            case 6:
+                playerAudioSource.clip = audioClips[13];
+                playerAudioSource.Play();
+                theUFO1.SetActive(true);
+                repeatCheck = true;
+                Debug.Log("Phone suceed");
                 theStage++;
                 break;
             case 7:
                 playerAudioSource.clip = audioClips[6];
                 playerAudioSource.Play();
-                Debug.Log("call succeed play");
+                theWaypoint2.SetActive(true);
+                Debug.Log("next victim");
                 theStage++;
                 break;
             case 8:
                 playerAudioSource.clip = audioClips[7];
                 playerAudioSource.Play();
+                theWaypoint2.SetActive(false);
+                Debug.Log("victim 2 check");
                 theStage++;
-                Debug.Log("victim 2  play");
                 break;
             case 9:
-                int theNumber = Random.Range(8, 12);
-                playerAudioSource.clip = audioClips[theNumber];
-                playerAudioSource.Play();
+                MistakePlay();
                 Debug.Log("wrong item play");
                 break;
             case 10:
-                playerAudioSource.clip = audioClips[12];
-                playerAudioSource.Play();
                 Debug.Log("correct item play");
+                theStage++;
                 break;
+            case 11:
+                break;
+            case 12:
+                playerAudioSource.clip = audioClips[14];
+                playerAudioSource.Play();
+                theUFO2.SetActive(true);
+                theStage++;
+                break;
+
+                /*
+                    case 5:
+                        playerAudioSource.clip = audioClips[5];
+                        playerAudioSource.Play();
+                        Debug.Log("phone call play");
+                        theStage++;
+                        break;
+                    case 7:
+                        playerAudioSource.clip = audioClips[6];
+                        playerAudioSource.Play();
+                        Debug.Log("call succeed play");
+                        theStage++;
+                        break;
+                    case 8:
+                        playerAudioSource.clip = audioClips[7];
+                        playerAudioSource.Play();
+                        theStage++;
+                        Debug.Log("victim 2  play");
+                        break;
+                    case 9:
+                        int theNumber = Random.Range(8, 12);
+                        playerAudioSource.clip = audioClips[theNumber];
+                        playerAudioSource.Play();
+                        Debug.Log("wrong item play");
+                        break;
+                    case 10:
+                        playerAudioSource.clip = audioClips[12];
+                        playerAudioSource.Play();
+                        Debug.Log("correct item play");
+                        break;
+                */
         }
     }
 
