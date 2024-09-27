@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class VictimControl : MonoBehaviour
 {
-    public float moveSpeed = 0f;
-    private Vector3 moveDirection;
-    private bool isBeingDragged = false;
+    public float moveSpeed = 0f;       
+    private Vector3 moveDirection;      
+    private bool isBeingDragged = false; 
 
     private Rigidbody rb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();  
     }
 
     void Update()
@@ -37,14 +37,14 @@ public class VictimControl : MonoBehaviour
     // Public function to be called when the UFO starts dragging the player
     public void StartDragging()
     {
-        isBeingDragged = true;
-        rb.isKinematic = true;
+        isBeingDragged = true;  
+        rb.isKinematic = true;  
     }
 
     // Public function to stop dragging the player
     public void StopDragging()
     {
-        isBeingDragged = false;
-        rb.isKinematic = false;
+        isBeingDragged = false;  
+        rb.isKinematic = false;  
     }
 }
