@@ -58,7 +58,7 @@ public class HandInteractionTrigger : MonoBehaviour
         {
             if (theScript.theStage == 5)
             {
-                Debug.Log("Pro: " + proximityToOther + "Hand distance" + handDistance);
+                //  Debug.Log("Pro: " + proximityToOther + "Hand distance" + handDistance);
             }
         }
 
@@ -83,6 +83,7 @@ public class HandInteractionTrigger : MonoBehaviour
         {
             if (collisionTimerCoroutineCPR == null)
             {
+                Debug.Log("CPR guy press");
                 collisionTimerCoroutineCPR = StartCoroutine(CollisionTimerCPR());
             }
         }
@@ -125,7 +126,7 @@ public class HandInteractionTrigger : MonoBehaviour
 
     private IEnumerator CollisionTimerCPR()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(8);
         Debug.Log("CPR done");
         theScript.ExectueStage();
         Destroy(this);

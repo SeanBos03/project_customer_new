@@ -37,7 +37,6 @@ public class CallButton : MonoBehaviour
 
             if (theScript.theStage == 6)
             {
-                theScript.theStage++;
                 theScript.ExectueStage();
             }
         }
@@ -50,7 +49,6 @@ public class CallButton : MonoBehaviour
 
             if (theScript.theStage == 6)
             {
-                theScript.theStage++;
                 theScript.AdvanceStage();
             }
         }

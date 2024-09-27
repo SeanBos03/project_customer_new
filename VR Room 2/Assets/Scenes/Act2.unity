@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7859764}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -2746,6 +2746,26 @@ PrefabInstance:
       propertyPath: theScript
       value: 
       objectReference: {fileID: 376239544}
+    - target: {fileID: 3311786739255363757, guid: ffba889bad19d644588b1effe1bfc5b8,
+        type: 3}
+      propertyPath: triggerDistance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3311786739255363757, guid: ffba889bad19d644588b1effe1bfc5b8,
+        type: 3}
+      propertyPath: proximityDistance
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813655384380229558, guid: ffba889bad19d644588b1effe1bfc5b8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.258
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813655384380229558, guid: ffba889bad19d644588b1effe1bfc5b8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.2208
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3121,8 +3141,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2.1885643
-  m_Center: {x: -0.15979244, y: 0, z: 0.63332844}
+  m_Radius: 2.273643
+  m_Center: {x: -0.07471372, y: 0, z: 0.63332844}
 --- !u!114 &270955141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3575,6 +3595,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 174977569468730808, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
+    - target: {fileID: 174977569468730808, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -3625,6 +3650,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 840513619735522947, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
+    - target: {fileID: 840513619735522947, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -3640,9 +3670,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1018697244578811386, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
+    - target: {fileID: 1018697244578811386, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1052023112276733278, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
     - target: {fileID: 1052023112276733278, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -3658,6 +3698,11 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1081842382214825069, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
     - target: {fileID: 1081842382214825069, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -3710,6 +3755,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2284552853339390746, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
+    - target: {fileID: 2284552853339390746, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -3730,9 +3780,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2560376668816590692, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
+    - target: {fileID: 2560376668816590692, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2604240041186623028, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
     - target: {fileID: 2604240041186623028, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -3753,6 +3813,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.0064
       objectReference: {fileID: 0}
+    - target: {fileID: 3004888011295020338, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
     - target: {fileID: 3004888011295020338, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -3840,6 +3905,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3459610742433803650, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
+    - target: {fileID: 3459610742433803650, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -3905,9 +3975,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4118879220492229787, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
+    - target: {fileID: 4118879220492229787, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4233982069578348143, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
     - target: {fileID: 4233982069578348143, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -3948,6 +4028,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -57.725
       objectReference: {fileID: 0}
+    - target: {fileID: 4417095689452738558, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
     - target: {fileID: 4417095689452738558, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -4040,6 +4125,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5449382893537081193, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
+    - target: {fileID: 5449382893537081193, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -4053,6 +4143,11 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5925848714216300587, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
     - target: {fileID: 5925848714216300587, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -4175,6 +4270,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6365923979490081292, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
+    - target: {fileID: 6365923979490081292, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -4190,6 +4290,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6441520189588150281, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
+    - target: {fileID: 6441520189588150281, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -4198,6 +4303,11 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6532304011719677066, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
     - target: {fileID: 6532304011719677066, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -4213,6 +4323,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstAidKit
       objectReference: {fileID: 0}
+    - target: {fileID: 6686003780707783021, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
     - target: {fileID: 6686003780707783021, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -4265,6 +4380,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6833303076337706929, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
+    - target: {fileID: 6833303076337706929, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -4285,6 +4405,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6891338499243526136, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
+    - target: {fileID: 6891338499243526136, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -4293,6 +4418,11 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7135688398291616996, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
     - target: {fileID: 7135688398291616996, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -4340,9 +4470,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7975808810417626736, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
+    - target: {fileID: 7975808810417626736, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7985075061678275884, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
     - target: {fileID: 7985075061678275884, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -4353,6 +4493,11 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8293459735192151111, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
     - target: {fileID: 8293459735192151111, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -4370,6 +4515,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8513606761814314703, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
+    - target: {fileID: 8513606761814314703, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -4380,9 +4530,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8746677377560540761, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
+    - target: {fileID: 8746677377560540761, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8776899305726156496, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
     - target: {fileID: 8776899305726156496, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -4408,6 +4568,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: IncorrectMedItem
       objectReference: {fileID: 0}
+    - target: {fileID: 9144740276077420918, guid: b349e99a1a953e843a3e15074bc5487c,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 7859764}
     - target: {fileID: 9144740276077420918, guid: b349e99a1a953e843a3e15074bc5487c,
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -5550,21 +5715,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: 4d643ab6c488f37449ef91484336794f, type: 3}
-  - {fileID: 8300000, guid: 0a4097873feccfc4086441f323fdc291, type: 3}
-  - {fileID: 8300000, guid: 369e5ebd90b986a4caab32755b37920a, type: 3}
-  - {fileID: 8300000, guid: 2c5f34a78d09cff47a371950c4e94dc6, type: 3}
-  - {fileID: 8300000, guid: 2683feb7600569546839955c980a0624, type: 3}
-  - {fileID: 8300000, guid: 2c69db7342c46244cae64e8069a4cea5, type: 3}
-  - {fileID: 8300000, guid: 39411e7c109c4144c8e4da4ccffb1a77, type: 3}
-  - {fileID: 8300000, guid: 6bb031fd6c890884da3f30684b3551e0, type: 3}
-  - {fileID: 8300000, guid: c5abb09c547403d4baad3f927353f963, type: 3}
-  - {fileID: 8300000, guid: 40d3e917ab20ea041af442b8de187499, type: 3}
-  - {fileID: 8300000, guid: e6308151dde364a4b8302fc7cb6a3496, type: 3}
-  - {fileID: 8300000, guid: fae0de4ca98baef45b402a619e2d9e64, type: 3}
+  - {fileID: 8300000, guid: 9856daee3f422f640a1e7ae63c3b2689, type: 3}
+  - {fileID: 8300000, guid: 59318c26f526f054bb3a131b9acb7e4a, type: 3}
+  - {fileID: 8300000, guid: bd83a59da1a10b340a28f9a8eb3ad139, type: 3}
+  - {fileID: 8300000, guid: d50b289fce8b9d3498e8cac830898cba, type: 3}
+  - {fileID: 8300000, guid: a25a70a9ea3e3d14f8812b702d1855b4, type: 3}
+  - {fileID: 8300000, guid: 357c86d354b8be740a58ef93602a437d, type: 3}
+  - {fileID: 8300000, guid: eafb1aed533502347bebac3664fb0f72, type: 3}
+  - {fileID: 8300000, guid: d69f440625c401641ba6be733d537a90, type: 3}
+  - {fileID: 8300000, guid: 2cc2ba86a0a1d4741ad41b91f219259a, type: 3}
+  - {fileID: 8300000, guid: b00bdf9a08bb50544b32547131ce0de1, type: 3}
+  - {fileID: 8300000, guid: e5438265f6adc3a4b91769ad53f228b1, type: 3}
+  - {fileID: 8300000, guid: 1d36f440ce488fe49a6a8c35b91bfa6e, type: 3}
   - {fileID: 8300000, guid: dc05bc24c58aa474db6cdce0666ecc5c, type: 3}
-  - {fileID: 8300000, guid: 541e46b34fe1a044da9c817fd1962eb3, type: 3}
-  - {fileID: 8300000, guid: b7e59be0c17ca814bab57e4d7a7dcda5, type: 3}
+  - {fileID: 8300000, guid: 308d07af391527a42bc5ed94bd2e3716, type: 3}
+  - {fileID: 8300000, guid: fd847e4fae871fb439c25ccdf58d4cb0, type: 3}
   theVictim: {fileID: 1353725718}
   theVictim2: {fileID: 68696303}
   theUFO1: {fileID: 926428552}
@@ -6276,7 +6441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7859764}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -7631,7 +7796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7859764}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -9277,7 +9442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7859764}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -10821,7 +10986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7859764}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -11226,7 +11391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7859764}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -11866,6 +12031,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 854774844968991712, guid: c48e91aa8b1890b4fadaf8f9bfdc1f52,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.445
+      objectReference: {fileID: 0}
+    - target: {fileID: 854774844968991712, guid: c48e91aa8b1890b4fadaf8f9bfdc1f52,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.164
+      objectReference: {fileID: 0}
+    - target: {fileID: 854774844968991712, guid: c48e91aa8b1890b4fadaf8f9bfdc1f52,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.355
+      objectReference: {fileID: 0}
     - target: {fileID: 1144584792447567742, guid: c48e91aa8b1890b4fadaf8f9bfdc1f52,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11896,6 +12076,16 @@ PrefabInstance:
       propertyPath: theScript
       value: 
       objectReference: {fileID: 376239544}
+    - target: {fileID: 7341706797475159578, guid: c48e91aa8b1890b4fadaf8f9bfdc1f52,
+        type: 3}
+      propertyPath: triggerDistance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341706797475159578, guid: c48e91aa8b1890b4fadaf8f9bfdc1f52,
+        type: 3}
+      propertyPath: proximityDistance
+      value: 1.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8324021174502938358, guid: c48e91aa8b1890b4fadaf8f9bfdc1f52,
         type: 3}
       propertyPath: m_Name
@@ -12220,7 +12410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7859764}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -12537,7 +12727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7859764}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -12871,7 +13061,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 1021399805}
   m_CameraFloorOffsetObject: {fileID: 1454888161}
   m_RequestedTrackingOriginMode: 1
-  m_CameraYOffset: 0.25
+  m_CameraYOffset: 0.12
 --- !u!143 &1021399813
 CharacterController:
   m_ObjectHideFlags: 0
@@ -13976,7 +14166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7859764}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -14846,8 +15036,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1935904975}
+  m_Children: []
   m_Father: {fileID: 1454888162}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1123484339
@@ -15490,7 +15679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7859764}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -19124,7 +19313,7 @@ MonoBehaviour:
   thePhone: {fileID: 2112980876}
   theScript: {fileID: 376239544}
   phoneDialSound: {fileID: 8300000, guid: b6573f20a6ae5a241b69c8d1288f3c91, type: 3}
-  audioSourceObject: {fileID: 1762572677}
+  audioSourceObject: {fileID: 1123484337}
 --- !u!114 &1494122304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19137,7 +19326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7859764}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -20742,7 +20931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7859764}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -21870,7 +22059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
+  m_InteractionManager: {fileID: 7859764}
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
@@ -23855,7 +24044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1935904975
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23863,17 +24052,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935904974}
-  m_LocalRotation: {x: -0.000000003870809, y: -0.17511268, z: 4.6566123e-10, w: 0.98454845}
-  m_LocalPosition: {x: 0, y: 0, z: 0.13}
-  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
+  m_LocalRotation: {x: 0.024662066, y: 0.900338, z: 0.02407341, w: -0.43382445}
+  m_LocalPosition: {x: 0, y: 0, z: 39.840065}
+  m_LocalScale: {x: 0.0010000011, y: 0.001, z: 0.001000001}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1100954948}
-  m_Father: {fileID: 1123484338}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -20.17, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.02, y: 0.0523}
+  m_AnchoredPosition: {x: -119718.7, y: 27249.414}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1935904976
@@ -26330,6 +26519,7 @@ SceneRoots:
   - {fileID: 433558633}
   - {fileID: 1340306002}
   - {fileID: 1239134977}
+  - {fileID: 1935904975}
   - {fileID: 526505745}
   - {fileID: 1587831117}
   - {fileID: 415868345}

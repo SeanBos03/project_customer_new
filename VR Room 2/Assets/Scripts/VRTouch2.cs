@@ -6,28 +6,22 @@ public class VRTouch2 : MonoBehaviour
 {
     [SerializeField] Act1Script theScript;
     public bool shouldStart;
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
-        if (shouldStart == false)
-        {
-            
-            return;
-        }
-
         if (theScript.theStage != 9)
         {
             return;
         }
 
         // Check if the collider belongs to the player by checking its tag
-        if (other.CompareTag("IncorrectMedItem"))
+        if (other.gameObject.CompareTag("IncorrectMedItem"))
         {
             Debug.Log("wrong item");
             Destroy(other.gameObject);
             theScript.ExectueStage();
         }
 
-        if (other.CompareTag("CorrectBandage"))
+        if (other.gameObject.CompareTag("CorrectBandage"))
         {
             Debug.Log("correct item");
             Destroy(other.gameObject);
@@ -35,4 +29,6 @@ public class VRTouch2 : MonoBehaviour
             theScript.ExectueStage();
         }
     }
+
+
 }

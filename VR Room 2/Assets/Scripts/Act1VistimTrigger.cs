@@ -21,7 +21,7 @@ public class Act1VistimTrigger : MonoBehaviour
         {
             Debug.Log("ACttivate");
             Debug.Log(theScript.theStage);
-            if (theScript.theStage == 3 || theScript.theStage == 2)
+            if (theScript.theStage == 3 || theScript.theStage == 2 || theScript.theStage == 1)
             {
                 theScript.theStage = 3;
                 sphereCollider.enabled = false;

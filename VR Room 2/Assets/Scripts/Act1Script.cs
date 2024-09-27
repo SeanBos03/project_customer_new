@@ -152,7 +152,6 @@ public class Act1Script : MonoBehaviour
                 theUFO1.SetActive(true);
                 repeatCheck = true;
                 Debug.Log("Phone suceed");
-                theStage++;
                 break;
             case 7:
                 playerAudioSource.clip = audioClips[6];
