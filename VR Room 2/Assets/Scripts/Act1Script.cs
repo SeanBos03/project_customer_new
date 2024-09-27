@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR.Management;
 
 public class Act1Script : MonoBehaviour
@@ -182,6 +183,7 @@ public class Act1Script : MonoBehaviour
                 playerAudioSource.Play();
                 theUFO2.SetActive(true);
                 theStage++;
+                StartCoroutine(SwitchSceneAfterDelay());
                 break;
 
                 /*
@@ -218,4 +220,12 @@ public class Act1Script : MonoBehaviour
         }
     }
 
+    IEnumerator SwitchSceneAfterDelay()
+    {
+        // Wait for the specified delay time
+        yield return new WaitForSeconds(5);
+
+        // Load the scene named "End Scene"
+        SceneManager.LoadScene("End Scene");
+    }
 }
