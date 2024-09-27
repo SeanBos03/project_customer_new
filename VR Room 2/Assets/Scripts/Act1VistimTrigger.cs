@@ -21,8 +21,9 @@ public class Act1VistimTrigger : MonoBehaviour
         {
             Debug.Log("ACttivate");
             Debug.Log(theScript.theStage);
-            if (theScript.theStage == 3)
+            if (theScript.theStage == 3 || theScript.theStage == 2)
             {
+                theScript.theStage = 3;
                 sphereCollider.enabled = false;
                 vrTouch2Script.shouldStart = true;
                 theScript.ExectueStage();

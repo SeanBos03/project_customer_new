@@ -10,8 +10,6 @@ public class CutsceneEnd : MonoBehaviour
     [SerializeField] GameObject theCamera;
     [SerializeField] GameObject theXR;
 
-    [SerializeField] Act1Script theScript;
-
     bool shouldRepeat = true;
 
     // Update is called once per frame
@@ -33,8 +31,6 @@ public class CutsceneEnd : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         theCamera.SetActive(false);
         theXR.SetActive(true);
-        theScript.theStage++;
-        theScript.ExectueStage();
         Destroy(this);
     }
 }

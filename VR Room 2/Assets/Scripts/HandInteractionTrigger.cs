@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HandInteractionTrigger : MonoBehaviour
 {
+    public Transform theParent;
+    public Transform theRig;
     public Transform leftHand;
     public Transform rightHand;
     public Transform otherCharacter;  // Reference to the other character's Transform
@@ -19,6 +21,7 @@ public class HandInteractionTrigger : MonoBehaviour
 
     void Update()
     {
+        
         //Bandage
         if (gameObject.tag == "CPR guy")
         {
@@ -28,10 +31,12 @@ public class HandInteractionTrigger : MonoBehaviour
                 {
                     StopCoroutine(collisionTimerCoroutineCPR);
                     collisionTimerCoroutineCPR = null;  // Reset coroutine reference
+                    
                 }
                 return;
             }
         }
+ 
 
         if (gameObject.tag == "Bandage guy")
         {
@@ -45,11 +50,17 @@ public class HandInteractionTrigger : MonoBehaviour
                 return;
             }
         }
-
+        //theRig.transform.position
         float handDistance = Vector3.Distance(leftHand.position, rightHand.position);
-        float proximityToOther = Vector3.Distance(leftHand.transform.position, otherCharacter.position);
+        float proximityToOther = Vector3.Distance(leftHand.transform.position, otherCharacter.transform.position);
 
-        
+        if (gameObject.tag == "CPR guy")
+        {
+            if (theScript.theStage == 5)
+            {
+                Debug.Log("Pro: " + proximityToOther + "Hand distance" + handDistance);
+            }
+        }
 
         // Check if hands are together AND the player is within proximity of the other character
         if ((handDistance <= triggerDistance) && (proximityToOther <= proximityDistance) && !isAnimationTriggered)

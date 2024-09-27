@@ -10,62 +10,122 @@ public class XRJoystickMovement : MonoBehaviour
     public float normalMoveSpeed = 2.0f;       // Normal movement speed
     public float sprintMoveSpeed = 4.0f;       // Sprint movement speed
     public float turnSpeed = 60f;              // Turn speed for left/right rotation
-
-    public Transform xrCamera;                 // Reference to the VR camera
+    public float gravityValue = -9.81f;        // Gravity value for downward force
+    public float joystickDeadzone = 0.1f;      // Deadzone for joystick input
 
     private CharacterController characterController;
-
+    private AudioSource playerAudioSource;
+    private Vector3 playerVelocity;
 
     [SerializeField] GameObject audioSourceObject;
     [SerializeField] AudioClip theAudioClip;
-    AudioSource playerAudioSource;
+
+    // Reference to the VR camera
+    public Transform cameraTransform;
 
     private void Start()
     {
+        // Setup AudioSource
         playerAudioSource = GetComponent<AudioSource>();
-        characterController = GetComponent<CharacterController>();
-        if (xrCamera == null)
+        if (playerAudioSource == null)
         {
-            xrCamera = Camera.main.transform;
+            Debug.LogError("AudioSource component is missing on the player.");
         }
 
+        // Setup CharacterController
+        characterController = GetComponent<CharacterController>();
         if (characterController == null)
         {
             Debug.LogError("CharacterController component is missing on the XR Rig.");
+        }
+
+        // Find the main camera (used for VR head tracking)
+        if (cameraTransform == null)
+        {
+            cameraTransform = Camera.main.transform;
         }
     }
 
     private void Update()
     {
+        // Handle Movement
+        HandleMovement();
+
+        // Handle Turning
+        HandleTurning();
+
+        // Handle Gravity
+        ApplyGravity();
+    }
+
+    private void HandleMovement()
+    {
         // Read joystick input for movement
         Vector2 leftInput = leftJoystick.action.ReadValue<Vector2>();
-        Vector3 moveDirection = new Vector3(leftInput.x, 0, leftInput.y);
-
-        // Convert movement direction relative to camera orientation, ignore y-axis to prevent floating
-        Vector3 movement = xrCamera.TransformDirection(moveDirection);
-        movement.y = 0;  // Ensures no vertical movement is applied
-
-        // Determine movement speed based on sprint input
-        float moveSpeed = sprintAction.action.IsPressed() ? sprintMoveSpeed : normalMoveSpeed;
-
-        // Apply movement to the CharacterController
-        characterController.Move(movement * moveSpeed * Time.deltaTime);
-
-        if ((movement * moveSpeed * Time.deltaTime).magnitude > 0)
+        if (leftInput.magnitude > joystickDeadzone)
         {
-            playerAudioSource.clip = theAudioClip;
-            playerAudioSource.Play();
-        }
+            // Get the camera's forward and right vectors for movement direction
+            Vector3 cameraForward = cameraTransform.forward;
+            Vector3 cameraRight = cameraTransform.right;
 
+            // Ensure movement direction is only on the XZ plane (no vertical movement)
+            cameraForward.y = 0;
+            cameraRight.y = 0;
+            cameraForward.Normalize();
+            cameraRight.Normalize();
+
+            // Calculate movement direction relative to the camera's orientation
+            Vector3 moveDirection = (cameraForward * leftInput.y + cameraRight * leftInput.x);
+
+            // Determine movement speed based on sprint input
+            float moveSpeed = sprintAction.action.IsPressed() ? sprintMoveSpeed : normalMoveSpeed;
+
+            // Apply movement to the CharacterController
+            characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
+
+            // Play walking/running sound if not already playing
+            if (!playerAudioSource.isPlaying)
+            {
+                playerAudioSource.clip = theAudioClip;
+                playerAudioSource.Play();
+            }
+        }
+        else
+        {
+            playerAudioSource.Stop(); // Stop audio when there's no input
+        }
+    }
+
+    private void HandleTurning()
+    {
         // Read right joystick for left/right turning
         Vector2 rightInput = rightJoystick.action.ReadValue<Vector2>();
 
-        // Apply horizontal rotation (yaw) to the XR Rig
-        float turnAmount = rightInput.x * turnSpeed * Time.deltaTime;
-        transform.Rotate(0, turnAmount, 0);
+        // Ensure turning occurs only when joystick input exceeds the deadzone
+        if (Mathf.Abs(rightInput.x) > joystickDeadzone)
+        {
+            // Apply horizontal rotation (yaw) only to the player's vertical axis (Y)
+            float turnAmount = rightInput.x * turnSpeed * Time.deltaTime;
 
-        // Apply gravity manually to keep player grounded
-        Vector3 gravity = Vector3.down * 9.81f * Time.deltaTime; // Adjust gravity value as needed
-        characterController.Move(gravity);
+            // Rotate the player around the Y-axis (up) in place, maintaining position
+            transform.Rotate(Vector3.up, turnAmount);
+        }
+    }
+
+    // Custom gravity handling for player
+    private void ApplyGravity()
+    {
+        // Apply gravity if the player is not grounded
+        if (!characterController.isGrounded)
+        {
+            playerVelocity.y += gravityValue * Time.deltaTime;
+        }
+        else
+        {
+            playerVelocity.y = 0f;  // Reset vertical velocity when grounded
+        }
+
+        // Apply gravity to the CharacterController
+        characterController.Move(playerVelocity * Time.deltaTime);
     }
 }

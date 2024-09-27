@@ -23,6 +23,11 @@ public class Act1Script : MonoBehaviour
     public int theStage;
     bool repeatCheck;
 
+    private void Start()
+    {
+        playerAudioSource = audioSourceObject.GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         if (repeatCheck)
