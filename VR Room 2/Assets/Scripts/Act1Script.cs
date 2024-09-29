@@ -21,6 +21,8 @@ public class Act1Script : MonoBehaviour
     AudioClip theAudioClip;
     AudioSource playerAudioSource;
 
+    [SerializeField] CallButton theCallButton;
+
     public int theStage;
     bool repeatCheck;
 
@@ -155,12 +157,24 @@ public class Act1Script : MonoBehaviour
                 Debug.Log("Phone suceed");
                 break;
             case 7:
-                playerAudioSource.clip = audioClips[6];
-                playerAudioSource.Play();
-                theWaypoint2.SetActive(true);
-                Debug.Log("next victim");
-                theStage++;
-                break;
+
+                if (theCallButton.hasCalled == false)
+                {
+                    theStage--;
+                    ExectueStage();
+                    break;
+                }
+
+                else
+                {
+                    playerAudioSource.clip = audioClips[6];
+                    playerAudioSource.Play();
+                    theWaypoint2.SetActive(true);
+                    Debug.Log("next victim");
+                    theStage++;
+                    break;
+                }
+                
             case 8:
                 playerAudioSource.clip = audioClips[7];
                 playerAudioSource.Play();

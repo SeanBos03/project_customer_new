@@ -18,6 +18,8 @@ public class CallButton : MonoBehaviour
     [SerializeField] GameObject audioSourceObject;
     AudioSource playerAudioSource;
 
+    public bool hasCalled;
+
     void Start()
     {
         phoneDialScript = thePhone.GetComponent<PhoneDial>();
@@ -31,13 +33,15 @@ public class CallButton : MonoBehaviour
         if (phoneDialScript.TheNumber == theNumber || 
             phoneDialScript.TheNumber == theSecondNumber)
         {
-            Debug.Log("Call success");
+            Debug.Log("Call success: " + theScript.theStage);
             playerAudioSource.clip = phoneDialSound;
             playerAudioSource.Play();
+
 
             if (theScript.theStage == 6)
             {
                 theScript.ExectueStage();
+                hasCalled = true;
             }
         }
 
@@ -45,7 +49,7 @@ public class CallButton : MonoBehaviour
         {
             playerAudioSource.clip = phoneDialSound;
             playerAudioSource.Play();
-            Debug.Log("Call failed");
+            Debug.Log("Call failed: " + theScript.theStage);
 
             if (theScript.theStage == 6)
             {
