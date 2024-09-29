@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Act1VistimTrigger : MonoBehaviour
 {
+    //near victim 1 trigger
+
+
     [SerializeField] Act1Script theScript;
     SphereCollider sphereCollider;
     VRTouch vrTouch2Script;

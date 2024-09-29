@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MainnequinHelp : MonoBehaviour
 {
+    //test script 
     bool infoAppear = true;
     [SerializeField] GameObject theInfo;
     GameManager gameManager;

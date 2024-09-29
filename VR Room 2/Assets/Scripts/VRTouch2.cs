@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class VRTouch2 : MonoBehaviour
 {
+    //correct item script 
+
     [SerializeField] Act1Script theScript;
     public bool shouldStart;
     void OnCollisionEnter(Collision other)
@@ -13,7 +15,6 @@ public class VRTouch2 : MonoBehaviour
             return;
         }
 
-        // Check if the collider belongs to the player by checking its tag
         if (other.gameObject.CompareTag("IncorrectMedItem"))
         {
             Debug.Log("wrong item");
@@ -29,6 +30,4 @@ public class VRTouch2 : MonoBehaviour
             theScript.ExectueStage();
         }
     }
-
-
 }

@@ -223,9 +223,9 @@ public class Act1Script : MonoBehaviour
     IEnumerator SwitchSceneAfterDelay()
     {
         // Wait for the specified delay time
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(10);
 
         // Load the scene named "End Scene"
-        SceneManager.LoadScene("End Scene");
+        SceneManager.LoadScene("TheEnd");
     }
 }

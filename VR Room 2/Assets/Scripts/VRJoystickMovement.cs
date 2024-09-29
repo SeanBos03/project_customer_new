@@ -3,15 +3,15 @@ using UnityEngine.InputSystem;
 
 public class XRJoystickMovement : MonoBehaviour
 {
-    public InputActionProperty leftJoystick;   // Left joystick input for movement
-    public InputActionProperty rightJoystick;  // Right joystick input for turning
-    public InputActionProperty sprintAction;   // Input action for sprinting
+    public InputActionProperty leftJoystick; //left joystick input for movement
+    public InputActionProperty rightJoystick; //right joystick input for turning
+    public InputActionProperty sprintAction; //sprint input
 
-    public float normalMoveSpeed = 2.0f;       // Normal movement speed
-    public float sprintMoveSpeed = 4.0f;       // Sprint movement speed
-    public float turnSpeed = 60f;              // Turn speed for left/right rotation
-    public float gravityValue = -9.81f;        // Gravity value for downward force
-    public float joystickDeadzone = 0.1f;      // Deadzone for joystick input
+    public float normalMoveSpeed = 2.0f;  //walk speed
+    public float sprintMoveSpeed = 4.0f; //sprint speed
+    public float turnSpeed = 60f; //turn speed
+    public float gravityValue = -9.81f; //gravity value
+    public float joystickDeadzone = 0.1f; //deadzone for joystick input
 
     private CharacterController characterController;
     private AudioSource playerAudioSource;
@@ -25,21 +25,18 @@ public class XRJoystickMovement : MonoBehaviour
 
     private void Start()
     {
-        // Setup AudioSource
         playerAudioSource = GetComponent<AudioSource>();
         if (playerAudioSource == null)
         {
-            Debug.LogError("AudioSource component is missing on the player.");
+            Debug.LogError("AudioSource missing");
         }
 
-        // Setup CharacterController
         characterController = GetComponent<CharacterController>();
         if (characterController == null)
         {
-            Debug.LogError("CharacterController component is missing on the XR Rig.");
+            Debug.LogError("CharacterController missing");
         }
 
-        // Find the main camera (used for VR head tracking)
         if (cameraTransform == null)
         {
             cameraTransform = Camera.main.transform;
@@ -48,19 +45,14 @@ public class XRJoystickMovement : MonoBehaviour
 
     private void Update()
     {
-        // Handle Movement
         HandleMovement();
-
-        // Handle Turning
         HandleTurning();
-
-        // Handle Gravity
         ApplyGravity();
     }
 
     private void HandleMovement()
     {
-        // Read joystick input for movement
+        //read joystick input for movement
         Vector2 leftInput = leftJoystick.action.ReadValue<Vector2>();
         if (leftInput.magnitude > joystickDeadzone)
         {

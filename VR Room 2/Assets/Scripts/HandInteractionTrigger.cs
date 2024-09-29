@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HandInteractionTrigger : MonoBehaviour
 {
+    //cpy and bandage script
+
     public Transform theParent;
     public Transform theRig;
     public Transform leftHand;
@@ -107,6 +109,7 @@ public class HandInteractionTrigger : MonoBehaviour
         {
             if (collisionTimerCoroutineCPR != null)
             {
+                Debug.Log("stop timer cpy");
                 StopCoroutine(collisionTimerCoroutineCPR);
                 collisionTimerCoroutineCPR = null;  // Reset coroutine reference
                 theScript.AdvanceStage();
@@ -115,8 +118,9 @@ public class HandInteractionTrigger : MonoBehaviour
 
         if (gameObject.tag == "Bandage guy")
         {
-            if (collisionTimerCoroutineCPR != null)
+            if (collisionTimerCoroutineBandage != null)
             {
+                Debug.Log("stop timer bandage");
                 StopCoroutine(collisionTimerCoroutineBandage);
                 collisionTimerCoroutineBandage = null;  // Reset coroutine reference
                 theScript.AdvanceStage();

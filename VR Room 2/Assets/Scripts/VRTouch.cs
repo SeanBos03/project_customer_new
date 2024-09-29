@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+//script for pulse checking
 public class VRTouch : MonoBehaviour
 {
     float waitTime = 6f;
@@ -9,6 +10,8 @@ public class VRTouch : MonoBehaviour
     [SerializeField] Act1Script theScript;
     public bool shouldStart;
 
+
+    //start pulse check with hand controller collision with body
     void OnTriggerEnter(Collider other)
     {
         if (shouldStart == false)
@@ -18,7 +21,6 @@ public class VRTouch : MonoBehaviour
 
         if (theScript.theStage == 4)
         {
-            // Check if the collided object matches the specific tag
             if (other.CompareTag("DaHand"))
             {
                 if (collisionTimerCoroutine == null)
@@ -30,6 +32,7 @@ public class VRTouch : MonoBehaviour
             
     }
 
+    //fail pulse check, restart process
     void OnTriggerExit(Collider other)
     {
         if (shouldStart == false)
@@ -43,7 +46,6 @@ public class VRTouch : MonoBehaviour
             {
                 if (collisionTimerCoroutine != null)
                 {
-                    Debug.Log("Timer stopped");
                     StopCoroutine(collisionTimerCoroutine);
                     collisionTimerCoroutine = null;  // Reset coroutine reference
                     theScript.AdvanceStage();
@@ -53,13 +55,16 @@ public class VRTouch : MonoBehaviour
             
     }
 
+    //pulse timer
     private IEnumerator CollisionTimer()
     {
-          // Time to wait
-        yield return new WaitForSeconds(waitTime);  // Wait for the specified time
+        yield return new WaitForSeconds(waitTime);
 
-        // After 5 seconds of continuous collision
-        Debug.Log("pulse check done");
-        theScript.ExectueStage();
+        if (theScript.theStage == 4)
+        {
+            Debug.Log("pulse check done");
+            theScript.ExectueStage();
+        }
+        
     }
 }
