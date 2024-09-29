@@ -80,7 +80,8 @@ public class HandInteractionTrigger : MonoBehaviour
         isAnimationTriggered = true;
         playerAnimator.SetInteger("State01", 1);
         Debug.Log("Hands are together and within proximity of the other character, animation triggered!" + "Tag: " + gameObject.tag + "Distance: " + Vector3.Distance(leftHand.transform.position, otherCharacter.transform.position));
-
+        int theState = playerAnimator.GetInteger("State01");
+        Debug.Log("State01: " + theState);
         if (gameObject.tag == "CPR guy")
         {
             if (collisionTimerCoroutineCPR == null)
@@ -103,6 +104,8 @@ public class HandInteractionTrigger : MonoBehaviour
     {
         isAnimationTriggered = false;
         playerAnimator.SetInteger("State01", 0);
+        int theState = playerAnimator.GetInteger("State01");
+        Debug.Log("State01 reset: " + theState);
         Debug.Log("Hands are apart or out of proximity, animation reset.");
 
         if (gameObject.tag == "CPR guy")
